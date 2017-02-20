@@ -1,0 +1,24 @@
+<div class="row">
+		<div class="col-sm-3 div-border"><strong>Customer Name</strong></div>
+		<div class="col-sm-3 div-border"><strong>Address</strong></div>
+		<div class="col-sm-3 div-border"><strong>Phone</strong></div>
+</div>
+<div ng-repeat="customer in customersCtrl.customers track by $index">
+	<div class="row">
+		<div class="col-sm-3 div-border">
+		<label ng-if="!customer.editable">{{customer.name}}</label>
+		<div ng-if="customer.editable"><input type="text" ng-model="customer.name"></div>
+		</div>
+		<div class="col-sm-3 div-border">
+		    <label ng-if="!customer.editable">{{customer.address}}</label>
+			<div ng-if="customer.editable"><input type="text" ng-model="customer.address"></div>
+		</div>
+		<div class="col-sm-3 div-border">
+			<label ng-if="!customer.editable">{{customer.phone}}</label>
+			<div ng-if="customer.editable"><input type="text" ng-model="customer.phone"></div>
+			</div>
+		<div class="col-sm-3 div-border">
+			<a ng-if="!customer.editable" ng-click="customer.editable=true;"><label>Edit</label></a></div>
+			<a ng-if="customer.editable" ng-click="customersCtrl.updateCustomer(customer);customer.editable=false;"><label>Save</label></a></div>
+	</div>
+</div>

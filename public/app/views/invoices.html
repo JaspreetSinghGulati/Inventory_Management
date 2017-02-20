@@ -1,0 +1,13 @@
+<div class="row">
+		<div class="col-sm-3 div-border"><strong>Customer Name</strong></div>
+		<div class="col-sm-3 div-border"><strong>Discount</strong></div>
+		<div class="col-sm-3 div-border"><strong>Total</strong></div>
+		<div class="col-sm-3"><a href="#" ui-sref="newInvoice">Create a new Invoice</a></div>
+</div>
+<div ng-repeat="invoice in invoiceCtrl.invoices track by $index">
+	<div class="row">
+		<div class="col-sm-3 div-border">{{invoice.customerName}}</div>
+		<div class="col-sm-3 div-border">{{invoice.discount}}%</div>
+		<div class="col-sm-3 div-border">{{invoice.total}}</div>
+	</div>
+</div>

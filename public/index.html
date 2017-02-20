@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+	 <link rel="stylesheet" type="text/css" href="app/css/main.css">
+	<!-- Load Angular Libraries !-->
+	   <script type="text/javascript"  src="node_modules/angular/angular.js"></script>
+	   <script type="text/javascript"  src="node_modules/angular-resource/angular-resource.min.js"></script>
+	  <script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+	  <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	  <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+	  <!-- Load application routing !-->
+	  <script type="text/javascript" src="app/app-config.js"></script>
+	  <script type="text/javascript" src="app/controllers/new-invoice-controller.js"></script>
+	  <script type="text/javascript" src="app/controllers/invoice-controller.js"></script>
+	  <script type="text/javascript" src="app/controllers/customers-controller.js"></script>
+	  <script type="text/javascript" src="app/controllers/products-controller.js"></script>
+	  <script type="text/javascript" src="app/services/product-service.js"></script>
+	  <script type="text/javascript" src="app/services/customer-service.js"></script>
+	  <script type="text/javascript" src="app/services/invoice-service.js"></script>
+	  <script type="text/javascript" src="app/services/invoice-items-service.js"></script>
+  </head>
+  <body ng-app="myApp">
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Invoice App</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#" ui-sref="products">Products</a></li>
+            <li><a href="#" ui-sref="customers">Customers</a></li>
+            <li><a href="#" ui-sref="invoices">Invoices</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+	<div class="container">
+		<div ui-view></div>
+	</div>
+
+    <script type="text/javascript" src="/js/lib/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

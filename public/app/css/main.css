@@ -1,0 +1,15 @@
+body {
+	background: #FFFFFF;
+    min-width: 1170px;
+}
+body, h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6, a{
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    color:#333333;
+}
+.div-border{
+	border-bottom: 1px solid grey;
+}
+.pr-1{
+	padding-right:10px
+}

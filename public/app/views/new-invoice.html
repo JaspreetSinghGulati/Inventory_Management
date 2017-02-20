@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-sm-2">
+		<label>Select a user:</label>
+		<select ng-disabled="newInvoiceCtrl.invoiceCreated.id" ng-model="newInvoiceCtrl.selectedUser" ng-options="customer.name for customer in newInvoiceCtrl.customers">
+	    </select>
+	</div>
+	<div class="col-sm-3" ng-if="!newInvoiceCtrl.invoiceCreated.id">
+	Estimated Amount(After Discount): {{newInvoiceCtrl.estTotal}}
+	</div>
+	<div  class="col-sm-3"ng-if="newInvoiceCtrl.invoiceCreated.id">
+	Invoice Created: Rs {{newInvoiceCtrl.invoiceCreated.total}}
+	</div>
+	<div class="col-sm-2"><a ng-click="newInvoiceCtrl.addCustomer()">Add a new Customer</a></div>
+	<div class="col-sm-2"><a ng-click="newInvoiceCtrl.openNewProductModal()">Add a new Product</a></div>
+	
+</div>
+</div>
+<div class="row" style="padding-bottom: 10px;">
+		<div class="col-sm-2 div-border"><strong>Name</strong></div><div class="col-sm-2 div-border"><strong>Price</strong></div>
+</div>
+<div ng-repeat="product in newInvoiceCtrl.products track by $index">
+	<div class="row" style="padding-bottom: 10px;">
+		<div class="col-sm-2 div-border" ng-bind="product.name"></div>
+		<div class="col-sm-2 div-border" ng-bind="product.price"></div>
+		<div class="col-sm-2 div-border">
+			<a ng-show="!product.added" ng-click="newInvoiceCtrl.addProduct(product);"><strong>Add</strong></a>
+			<a ng-show="product.added" ng-click="newInvoiceCtrl.removeProduct($index,product);"><strong>Remove</strong></a>
+		</div>
+		<div class="col-sm-2 div-border" ><strong>Quantity:</strong>
+			<select  ng-model="product.quantity" ng-change="newInvoiceCtrl.calcEstimateInvoiceAmount();" ng-options="quantity for quantity in newInvoiceCtrl.quantities">
+			</select>
+		</div>
+	</div>
+</div>
+<div class="row">
+<label class="pr-1">Enter Discount</label><input type="number" ng-model="newInvoiceCtrl.discount"/>
+<button ng-click="newInvoiceCtrl.createInvoice()"; ng-disabled="newInvoiceCtrl.invoiceCreated.id">Create Invoice</button>
+<button ng-click="newInvoiceCtrl.resetInvoice()";>New</button>
+</div>
